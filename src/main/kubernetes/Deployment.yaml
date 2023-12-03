@@ -1,0 +1,34 @@
+# websockets-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: websockets-deployment
+spec:
+  replicas: 1  # Set the desired number of replicas as needed
+  selector:
+    matchLabels:
+      app: websockets
+  template:
+    metadata:
+      labels:
+        app: websockets
+    spec:
+      containers:
+      - name: websockets-container
+        image: emmettmoore/websockets-quickstart:1.0.0-SNAPSHOT
+        ports:
+        - containerPort: 8080  # Adjust the container port as per your application
+---
+# websockets-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: websockets-service
+spec:
+  selector:
+    app: websockets
+  ports:
+  - protocol: TCP
+    port: 8080  # External port that will be used to access the service
+    targetPort: 8080  # Port on the container where the application is listening
+  type: NodePort
