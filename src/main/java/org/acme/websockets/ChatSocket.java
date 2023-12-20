@@ -1,7 +1,6 @@
 package org.acme.websockets;
 
 import java.util.Map;
-import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.eclipse.microprofile.metrics.MetricUnits;
@@ -30,7 +29,7 @@ import io.quarkus.runtime.StartupEvent;
 //https://quarkus.io/guides/websockets
 //https://quarkus.io/guides/smallrye-metrics#quarkus-smallrye-metrics_quarkus.smallrye-metrics.jaxrs.enabled
 
-// https://quarkus.io/guides/lifecycle#listening-for-startup-and-shutdown-events
+//https://quarkus.io/guides/lifecycle#listening-for-startup-and-shutdown-events
 
 @ServerEndpoint("/chat/{username}")         
 @ApplicationScoped
